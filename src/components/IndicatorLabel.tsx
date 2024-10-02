@@ -11,7 +11,7 @@ export default function IndicatorLabel(props: IndicatorLabelProps) {
     return (
         <View style={styles.container}>
             <Label style={
-                StyleSheet.flatten([styles.indicator, { color: props.value ? '#0f0' : '#f00' }])
+                StyleSheet.compose(styles.indicator, { color: props.value ? '#0f0' : '#f00' })
             }>⬤</Label>
             <Label>{props.children}</Label>
         </View>

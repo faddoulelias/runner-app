@@ -3,10 +3,14 @@ import React from 'react'
 import TitledSection from '../components/TitledSection';
 import Label from '../components/Label';
 
-export default function UserSection() {
+interface UserSectionProps {
+    style?: any
+}
+
+export default function UserSection(props: UserSectionProps) {
     const userDetail = require('../../data/jsons/user.json');
     return (
-        <TitledSection title="User Details">
+        <TitledSection title="User Details" style={props.style}>
             <View style={styles.profileContainer}>
                 <Image
                     style={styles.profileImage}

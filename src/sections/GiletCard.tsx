@@ -1,29 +1,32 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
 import React from 'react'
-import Section from '../components/Section'
+import Section from '../components/Card'
 import Label from '../components/Label'
 import IndicatorLabel from '../components/IndicatorLabel'
 import BatteryLabel from '../components/BatteryLabel'
 
-export default function GiletSection() {
+interface GiletCardProps {
+    style?: any
+}
+
+export default function GiletCard(props: GiletCardProps) {
     const giletData = {
         temperature: 20,
-        battery: 0.76,
+        battery: 1.00,
         active: true,
     }
 
     return (
-        <Section>
-            <View style={styles.giletSection}>
+        <Section style={props.style}>
+            <View style={styles.giletCard}>
                 <Image
                     style={styles.giletImage}
                     source={require('../../data/images/gilet.png')}
                 />
                 <View style={styles.giletData}>
                     <BatteryLabel value={giletData.battery}>Battery : {giletData.battery * 100}%</BatteryLabel>
-                    <IndicatorLabel value={giletData.active}>Connected</IndicatorLabel>
+                    <IndicatorLabel value={giletData.active}>{giletData.active ? 'Connected' : 'Not connected'}</IndicatorLabel>
                     <Label>Temperature: {giletData.temperature}°C</Label>
-                    <Label>Battery: {giletData.battery * 100}%</Label>
                 </View >
             </View>
         </Section>
@@ -31,7 +34,7 @@ export default function GiletSection() {
 }
 
 const styles = StyleSheet.create({
-    giletSection: {
+    giletCard: {
         flexDirection: 'row',
         alignItems: 'center',
     },

@@ -8,7 +8,7 @@ interface LabelProps {
 
 export default function Label(props: LabelProps) {
     return (
-        <Text style={StyleSheet.flatten([styles.label, props.style])}> {props.children}</Text >
+        <Text style={StyleSheet.compose(styles.label, props.style)}> {props.children}</Text >
     )
 }
 

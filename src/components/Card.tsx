@@ -1,21 +1,21 @@
 import { View, StyleSheet } from 'react-native'
 import React from 'react'
 
-interface SectionProps {
-    children?: React.ReactNode
+interface CardProps {
+    children?: React.ReactNode,
+    style?: any
 }
 
-export default function Section(props: SectionProps) {
+export default function Card(props: CardProps) {
     return (
-        <View style={styles.section}>
+        <View style={StyleSheet.compose(styles.card, props.style)}>
             {props.children}
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    section: {
-        margin: 20,
+    card: {
         padding: 20,
         backgroundColor: '#23232399',
         borderRadius: 10,

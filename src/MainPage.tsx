@@ -1,8 +1,9 @@
 import { StyleSheet, Text, ImageBackground, ScrollView } from 'react-native'
 import React from 'react'
-import Section from './components/Section'
+import Section from './components/Card'
 import UserSection from './sections/UserSection'
-import GiletSection from './sections/GiletSection'
+import GiletCard from './sections/GiletCard'
+import TopBar from './sections/TopBar'
 
 export default function MainPage() {
     return (
@@ -10,10 +11,14 @@ export default function MainPage() {
             source={require('../assets/images/wallpaper.jpg')}
             style={styles.container}
         >
+            <TopBar />
+            <UserSection style={styles.section} />
             <ScrollView style={styles.scrollView}>
-                <UserSection />
-                <GiletSection>
-                </GiletSection>
+                <GiletCard style={styles.section} />
+                <GiletCard style={styles.section} />
+                <GiletCard style={styles.section} />
+                <GiletCard style={styles.section} />
+                <GiletCard style={styles.section} />
             </ScrollView>
         </ImageBackground>
     )
@@ -30,7 +35,14 @@ const styles = StyleSheet.create({
     },
 
     scrollView: {
-        paddingTop: 50,
-        width: '100%',
+        flex: 1,
+        marginTop: 50,
+        flexDirection: 'column',
+        width: '100%'
+    },
+
+    section: {
+        marginBottom: 20,
+        marginHorizontal: 20,
     }
 })

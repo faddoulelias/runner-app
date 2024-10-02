@@ -1,15 +1,16 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
-import Section from './Section';
+import Section from './Card';
 
 interface TitledSectionProps {
     title: string;
     children?: React.ReactNode;
+    style?: any;
 }
 
 export default function TitledSection(props: TitledSectionProps) {
     return (
-        <Section>
+        <Section style={props.style}>
             <Text style={styles.sectionTitle}>{props.title}</Text>
             {props.children}
         </Section>

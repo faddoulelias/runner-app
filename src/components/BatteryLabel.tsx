@@ -8,11 +8,17 @@ interface IndicatorLabelProps {
 }
 
 export default function BatteryLabel(props: IndicatorLabelProps) {
+    const greenFunction = (value: number) => {
+        return Math.round(255 * value)
+    }
+    const redFunction = (value: number) => {
+        return Math.round(255 * (1 - value))
+    }
+    const colorString = `rgb(${redFunction(props.value)}, ${greenFunction(props.value)}, 0)`
+
     return (
         <View style={styles.container}>
-            <Label style={
-                StyleSheet.flatten([styles.indicator, { color: props.value ? '#0f0' : '#f00' }])
-            }>⬤</Label>
+            <Label style={StyleSheet.compose(styles.indicator, { color: colorString })}>⬤</Label>
             <Label>{props.children}</Label>
         </View>
     )
