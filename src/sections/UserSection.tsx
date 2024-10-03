@@ -10,43 +10,37 @@ interface UserSectionProps {
 export default function UserSection(props: UserSectionProps) {
     const userDetail = require('../../data/jsons/user.json');
     return (
-        <TitledSection title="User Details" style={props.style}>
-            <View style={styles.profileContainer}>
-                <Image
-                    style={styles.profileImage}
-                    source={require('../../data/images/profile.png')}
-                />
-                <View style={styles.profileDetails}>
-                    <Label>{userDetail.name}</Label>
-                    <Label>{userDetail.accountNumber}</Label>
-                    <Label>{new Date(userDetail.birthDate).toLocaleDateString()}</Label>
-                    <Label>{userDetail.email}</Label>
-                </View >
+        <View style={styles.profileContainer}>
+            <Image
+                style={styles.profileImage}
+                source={require('../../data/images/profile.png')}
+            />
+            <View style={styles.profileDetails}>
+                <Label>{userDetail.name}</Label>
+                <Label>{userDetail.accountNumber}</Label>
+                <Label>{new Date(userDetail.birthDate).toLocaleDateString()}</Label>
+                <Label>{userDetail.email}</Label>
             </View >
-        </TitledSection>
+        </View >
     )
 }
 
 const styles = StyleSheet.create({
+    profileContainer: {
+        backgroundColor: '#00000088',
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+        paddingVertical: 40,
+        padding: 20
+    },
     profileImage: {
         width: 100,
         height: 100,
         borderRadius: 50,
     },
-    profileContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
     profileDetails: {
         marginLeft: 20,
         fontSize: 20,
-
-    },
-    sectionTitle: {
-        fontSize: 24,
-        color: '#eee',
-        fontWeight: 'bold',
-        paddingBottom: 10,
-        paddingTop: 5
     }
 });

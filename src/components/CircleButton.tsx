@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons'
 
 interface CircleButtonProps {
     image?: ImageSourcePropType;
-    icon?: keyof typeof Ionicons.glyphMap
+    icon?: keyof typeof Ionicons.glyphMap;
     onPress?: () => void;
 }
 

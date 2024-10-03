@@ -9,7 +9,7 @@ export default function TopBar() {
             <CircleButton image={require('../../data/images/profile.png')} />
             <SearchBar style={styles.searchBar} />
             <CircleButton icon="settings" />
-            <CircleButton icon="settings" />
+            <CircleButton icon="radio-outline" />
         </View>
     )
 }
